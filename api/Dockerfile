@@ -12,4 +12,6 @@ RUN bun upgrade
 
 RUN bun i
 
+EXPOSE 5001
+
 CMD bun run start
