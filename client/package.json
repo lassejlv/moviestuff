@@ -1,0 +1,17 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bunx concurrently \"vite\" \"bun run tailwindcss\"",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tailwindcss": "bunx tailwindcss -i ./src/style.css -o ./src/style.dist.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Searcher App</title>
+  </head>
+  <body>
+    <div class="container mx-auto p-10">
+      <h1
+        class="text-4xl text-center font-bold bg-gradient-to-r from-purple-500 to-indigo-700 text-transparent bg-clip-text"
+      >
+        Movie Searcher App
+      </h1>
+
+      <div>
+        <input
+          type="text"
+          id="searchInput"
+          class="w-full p-2 mt-5 border bg-darkLight border-darkBorder rounded-md outline-none focus:border-gray-500 text-gray-400"
+          placeholder="Search for a movie"
+          onchange="HitEnterMessage()"
+        />
+
+        <div
+          id="hit_enter_msg"
+          class="fixed hidden bg-darkLight text-gray-400 p-2 rounded-md my-2 italic transition-all duration-300 ease-in-out fade-in-animation"
+        >
+          *Psst! Hit enter to search
+        </div>
+      </div>
+
+      <button id="searchBtn" class="hidden">Search</button>
+
+      <div
+        id="movies"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-2"
+      ></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      function HitEnterMessage() {
+        const hit_enter_msg = document.getElementById("hit_enter_msg");
+        hit_enter_msg?.classList.remove("hidden");
+
+        setTimeout(() => {
+          hit_enter_msg?.classList.add("hidden");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
