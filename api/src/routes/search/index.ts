@@ -7,6 +7,7 @@ export async function GET(req: Request): Promise<Response> {
 
   try {
     const movies = await SearchMovies(movieQuery);
+
     return SendJSON(movies);
   } catch (error: any) {
     return Failure(error.message);
@@ -40,6 +41,6 @@ async function SearchMovies(q: string) {
 
   return results.map((movie) => ({
     ...movie,
-    image_full_url: `https:image.tmdb.org/t/p/w500${movie.poster_path}`,
+    image_full_url: `https://image.tmdb.org/t/p/original${movie.poster_path}`,
   }));
 }

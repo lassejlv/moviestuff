@@ -5,7 +5,7 @@ import { cors } from "./middleware/cors";
 const app = new ProBun({
   port: Number(env.PORT),
   routes: "src/routes",
-  logger: true,
+  logger: env.NODE_ENV === "development" ? true : false,
 });
 
 app.definePreMiddleware(cors);

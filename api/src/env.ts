@@ -6,6 +6,7 @@ export const env = createEnv({
     PORT: z.string(),
     API_KEY: z.string(),
     CORS_ORIGIN: z.string(),
+    NODE_ENV: z.string(),
   },
   runtimeEnv: Bun.env,
 });
