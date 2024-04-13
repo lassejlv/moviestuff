@@ -14,7 +14,15 @@ interface Movie {
   image_full_url: string;
 }
 
-const API_URL = "http://localhost:5001";
+let API_URL = "";
+
+if (window !== undefined && window.location.hostname === "localhost") {
+  API_URL = "http://localhost:5001";
+} else {
+  API_URL = "https://movie-search-api.lassejlv.dk";
+}
+
+console.log(API_URL);
 
 async function SearchMovies(q: string) {
   const response = await fetch(`${API_URL}/search?q=${encodeURIComponent(q)}`);
@@ -41,9 +49,7 @@ Input.addEventListener("keydown", (event) => {
 function Card(movie: Movie) {
   return `
     <div class="bg-[#242626] border-2 border-darkBorder rounded-[8px] p-4">
-      <img src=${
-        movie.image_full_url || "https://via.placeholder.com/500"
-      } alt="${
+      <img src="${movie.image_full_url}" alt="${
     movie.id
   }" class="w-full h-52 object-cover rounded-[8px] bg-blur">
         <h1 class="text-xl font-bold text-white mt-2">${movie.title}</h1>
